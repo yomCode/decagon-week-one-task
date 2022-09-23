@@ -1,23 +1,27 @@
 package models;
 
-public abstract class Store {
-    //ENTITY FIELDS----------------------------------
+import java.util.List;
+
+public class Store {
     private Integer id;
-    private String name;
-    private String location;
+    private String storeName;
+    private List<Staff> staffList;
+    private List<Products> productsList;
 
-    //CONSTRUCTORS------------------------------------
-
-    //Empty Args
     public Store(){
 
     }
 
-    //All Args
-    public Store(Integer id, String name, String location) {
+    public Store(Integer id, String name){
         this.id = id;
-        this.name = name;
-        this.location = location;
+        this.storeName = name;
+    }
+
+    public Store(Integer id, String name, List<Staff> staffList, List<Products> productsList) {
+        this.id = id;
+        this.storeName = name;
+        this.staffList = staffList;
+        this.productsList = productsList;
     }
 
     public Integer getId() {
@@ -28,33 +32,37 @@ public abstract class Store {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getStoreName() {
+        return storeName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
     }
 
-    public String getLocation() {
-        return location;
+    public List<Staff> getStaffList() {
+        return staffList;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setStaffList(List<Staff> staffList) {
+        this.staffList = staffList;
     }
 
+    public List<Products> getProductsList() {
+        return productsList;
+    }
+
+    public void setProductsList(List<Products> productsList) {
+        this.productsList = productsList;
+    }
 
     @Override
     public String toString() {
-        return "models.Store{" +
+        return "Store{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", location='" + location + '\'' +
+                ", name='" + storeName + '\'' +
+                ", staffList=" + staffList +
+                ", productsList=" + productsList +
                 '}';
     }
-
-
-
-
 }

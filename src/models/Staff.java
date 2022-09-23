@@ -1,9 +1,10 @@
 package models;
 
+import Interfaces.Manager;
 import enums.Role;
 import enums.Sex;
 
-public class Staff extends Store {
+public class Staff extends Personel{
 
     //ENTITY FIELDS-------------------------
     private Sex sex;
@@ -18,8 +19,16 @@ public class Staff extends Store {
     }
 
     //All Args
-    public Staff(Integer id, String name, String location, Sex sex, String email, Role role) {
-        super(id, name, location);
+
+
+//    public Staff(Sex sex, String email, Role role) {
+//        this.sex = sex;
+//        this.email = email;
+//        this.role = role;
+//    }
+
+    public Staff(Integer id, String name, Sex sex, String email, Role role) {
+        super(id, name);
         this.sex = sex;
         this.email = email;
         this.role = role;
@@ -50,6 +59,9 @@ public class Staff extends Store {
     }
 
 
+    //TO_STRING METHOD
+
+
     @Override
     public String toString() {
         return "Staff{" +
@@ -58,4 +70,6 @@ public class Staff extends Store {
                 ", role=" + role +
                 '}';
     }
+
+
 }

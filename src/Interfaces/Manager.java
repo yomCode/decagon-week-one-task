@@ -1,6 +1,8 @@
 package Interfaces;
 
-public interface Manager {
+import models.Staff;
 
+public interface Manager {
+    public String hireCashier(Staff staff);
 
 }
