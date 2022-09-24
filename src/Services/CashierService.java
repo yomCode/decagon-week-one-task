@@ -1,10 +1,10 @@
 package Services;
 
-import Interfaces.Cashier;
+import Interfaces.CashierInterface;
 import enums.Role;
 import models.Staff;
 
-public class CashierImpl extends Staff implements Cashier {
+public class CashierImpl extends Staff implements CashierInterface {
 
     public String sellProduct(Staff staff){
         if(!staff.getRole().equals(Role.CASHIER)){
