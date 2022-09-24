@@ -2,7 +2,7 @@ package Interfaces;
 
 import models.Staff;
 
-public interface Manager {
+public interface ManagerInterface {
     public String hireCashier(Staff staff);
 
 }

@@ -2,33 +2,53 @@ package models;
 
 import enums.ProductCategory;
 
+import java.util.List;
+import java.util.Set;
+
 public class Products{
-    private long productId;
-    private String productName;
-    private ProductCategory category;
-    private Double ratePerUnit;
-    private Integer quantity;
-    private Double amount;
+    //FIELDS--------------------------------------------------------------------->
+    private static long productId;
+    private static String productName;
+    private static ProductCategory category;
+    private static Double ratePerUnit;
+    private static Integer quantity;
+    private static Double amount;
 
 
+    //CONSTRUCTOR------------------------------------------------------------------>
+
+    //Empty Args
     public Products(){
 
     }
 
+    //Full Args
     public Products(long productId, String productName, ProductCategory category, Double ratePerUnit) {
-        this.productId = productId;
-        this.productName = productName;
-        this.category = category;
-        this.ratePerUnit = ratePerUnit;
+        Products.productId = productId;
+        Products.productName = productName;
+        Products.category = category;
+        Products.ratePerUnit = ratePerUnit;
 
     }
 
+    public Products(long productId, String productName, ProductCategory category,
+                    Double ratePerUnit, Integer quantity) {
+        Products.productId = productId;
+        Products.productName = productName;
+        Products.category = category;
+        Products.ratePerUnit = ratePerUnit;
+        Products.quantity = quantity;
+
+    }
+
+
+    //GETTERS & SETTERS------------------------------------------------------------------>
     public String getProductName() {
         return productName;
     }
 
     public void setProductName(String productName) {
-        this.productName = productName;
+        Products.productName = productName;
     }
 
     public long getProductId() {
@@ -36,7 +56,7 @@ public class Products{
     }
 
     public void setProductId(long productId) {
-        this.productId = productId;
+        Products.productId = productId;
     }
 
     public ProductCategory getCategory() {
@@ -44,7 +64,7 @@ public class Products{
     }
 
     public void setCategory(ProductCategory category) {
-        this.category = category;
+        Products.category = category;
     }
 
     public Double getRatePerUnit() {
@@ -52,7 +72,7 @@ public class Products{
     }
 
     public void setRatePerUnit(Double ratePerUnit) {
-        this.ratePerUnit = ratePerUnit;
+        Products.ratePerUnit = ratePerUnit;
     }
 
     public Integer getQuantity() {
@@ -60,13 +80,14 @@ public class Products{
     }
 
     public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+        Products.quantity = quantity;
     }
 
     public Double getAmount() {
-        amount = this.quantity * this.ratePerUnit;
+        amount = quantity * ratePerUnit; //VAT INCLUSIVE
         return amount;
     }
+
 
     @Override
     public String toString() {
@@ -74,9 +95,11 @@ public class Products{
                 "productId=" + productId +
                 ", productName='" + productName + '\'' +
                 ", category=" + category +
-                ", rate=" + ratePerUnit +
+                ", ratePerUnit=" + ratePerUnit +
                 ", quantity=" + quantity +
                 ", amount=" + amount +
                 '}';
     }
+
+
 }

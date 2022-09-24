@@ -1,15 +1,19 @@
 package models;
 
-import Interfaces.Manager;
+import Interfaces.CashierInterface;
+import Interfaces.ManagerInterface;
+import Services.CashierService;
+import Services.ManagerService;
 import enums.Role;
 import enums.Sex;
 
-public class Staff extends Personel{
+public class Staff extends Personel implements ManagerInterface, CashierInterface {
 
     //ENTITY FIELDS-------------------------
-    private Sex sex;
     private String email;
     private Role role;
+    private CashierService cashierService;
+    private ManagerService managerService;
 
     //CONSTRUCTOR----------------------------
 
@@ -19,28 +23,18 @@ public class Staff extends Personel{
     }
 
     //All Args
-
-
-//    public Staff(Sex sex, String email, Role role) {
-//        this.sex = sex;
-//        this.email = email;
-//        this.role = role;
-//    }
-
-    public Staff(Integer id, String name, Sex sex, String email, Role role) {
-        super(id, name);
-        this.sex = sex;
+    public Staff(String email, Role role) {
         this.email = email;
         this.role = role;
     }
 
-    public Sex getSex() {
-        return sex;
+    public Staff(Integer id, String name, Integer age, Sex sex, String email, Role role) {
+        super(id, name, age, sex);
+        this.email = email;
+        this.role = role;
     }
 
-    public void setSex(Sex sex) {
-        this.sex = sex;
-    }
+
 
     public String getEmail() {
         return email;
@@ -65,11 +59,32 @@ public class Staff extends Personel{
     @Override
     public String toString() {
         return "Staff{" +
-                "sex=" + sex +
-                ", email='" + email + '\'' +
+                "email='" + email + '\'' +
                 ", role=" + role +
                 '}';
     }
 
+    @Override
+    public String hireCashier(Staff staff){
+        if(!staff.getRole().equals(Role.MANAGER)){
+            return "Access Denied!";
+        }else{
+            return "You are hired!";
+        }
+
+    }
+
+
+    @Override
+    public String sellProduct(Staff staff, Customer customer){
+        if(staff.getRole().equals(Role.CASHIER) && customer.buyProduct().equals("Product purchased!")){
+            return "Product sold!";
+        }else if(staff.getRole().equals(Role.CASHIER) && customer.buyProduct().equals("Not enough Cash to complete purchase")){
+            return "Product not sold";
+        }else{
+            return "Access denied";
+        }
+
+    }
 
 }

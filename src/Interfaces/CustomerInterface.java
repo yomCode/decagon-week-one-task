@@ -1,2 +1,6 @@
-package Interfaces;public interface Customer {
+package Interfaces;
+
+public interface CustomerInterface {
+
+    public String buyProduct();
 }

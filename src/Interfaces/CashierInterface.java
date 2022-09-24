@@ -1,10 +1,11 @@
 package Interfaces;
 
+import models.Customer;
 import models.Staff;
 
-public interface Cashier {
+public interface CashierInterface {
 
-    public String sellProduct(Staff staff);
+    public String sellProduct(Staff staff, Customer customer);
 
 
 }

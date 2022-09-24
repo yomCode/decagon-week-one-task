@@ -3,11 +3,14 @@ package models;
 import java.util.List;
 
 public class Store {
+    //FIELDS------------------------------------------------------------------>
     private Integer id;
     private String storeName;
     private List<Staff> staffList;
     private List<Products> productsList;
 
+
+    //CONSTRUCTORS------------------------------------------------------------------>
     public Store(){
 
     }
@@ -24,6 +27,8 @@ public class Store {
         this.productsList = productsList;
     }
 
+
+    //SETTERS & GETTERS------------------------------------------------------------------>
     public Integer getId() {
         return id;
     }

@@ -5,4 +5,5 @@ public enum ProductCategory {
     UTENSILS,
     ACCESSORIES,
     BEVERAGES
+
 }
