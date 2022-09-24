@@ -15,14 +15,11 @@ public class Products{
     private static Double amount;
 
 
-    //CONSTRUCTOR------------------------------------------------------------------>
-
-    //Empty Args
+    //CONSTRUCTOR-------------------------------------------------------------------------------------->
     public Products(){
 
     }
 
-    //Full Args
     public Products(long productId, String productName, ProductCategory category, Double ratePerUnit) {
         Products.productId = productId;
         Products.productName = productName;

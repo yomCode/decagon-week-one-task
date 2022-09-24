@@ -1,10 +1,10 @@
 package Interfaces;
 
-import Services.CustomerService;
+import models.Customer;
 import models.Staff;
 
 public interface PrintReceiptInterface {
-    public static String printReceipt(Staff staff, CustomerService customerService) {
+    public static String printReceipt(Staff staff, Customer customer) {
         return null;
     }
 }
