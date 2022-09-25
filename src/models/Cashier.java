@@ -2,9 +2,11 @@ package models;
 
 import Interfaces.CashierInterface;
 import enums.Qualification;
+import enums.Role;
 import enums.Sex;
 
-public class Cashier extends Staff implements CashierInterface {
+public class Cashier extends Staff {
+
 
     public Cashier() {
     }
@@ -13,15 +15,7 @@ public class Cashier extends Staff implements CashierInterface {
         super(id, name, age, sex, qualification, email);
     }
 
-    @Override
-    public String sellProduct(Customer customer){
-        if(customer.buyProduct().equals("Product purchased!")){
-            return "Product sold!";
-        }else{
-            return "Product not sold";
-        }
 
-    }
 
 }
 

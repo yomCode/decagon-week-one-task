@@ -2,10 +2,11 @@ package models;
 
 import Interfaces.ManagerInterface;
 import enums.Qualification;
+import enums.Role;
 import enums.Sex;
 import models.Staff;
 
-public class Manager extends Staff implements ManagerInterface {
+public class Manager extends Staff{
 
     public Manager() {
     }
@@ -15,17 +16,5 @@ public class Manager extends Staff implements ManagerInterface {
     }
 
 
-    @Override
-    public String hireCashier(Applicant applicant){
-        if((applicant.getAge() >= 23 && applicant.getAge()<= 30
-                && applicant.getSex().equals(Sex.FEMALE))
-                && applicant.getQualification().equals(Qualification.BSC)
-                || applicant.getQualification().equals(Qualification.HND)
-                && applicant.takeExam().equals("Passed")){
-            return "You are hired!";
-        }else{
-            return "Sorry, you are not qualified for this position.";
-        }
 
-    }
 }

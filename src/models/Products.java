@@ -7,12 +7,12 @@ import java.util.Set;
 
 public class Products{
     //FIELDS--------------------------------------------------------------------->
-    private static long productId;
-    private static String productName;
-    private static ProductCategory category;
-    private static Double ratePerUnit;
-    private static Integer quantity;
-    private static Double amount;
+    private  long productId;
+    private String productName;
+    private ProductCategory category;
+    private Double ratePerUnit;
+    private Integer quantity;
+    private Double amount;
 
 
     //CONSTRUCTOR-------------------------------------------------------------------------------------->
@@ -20,40 +20,31 @@ public class Products{
 
     }
 
-    public Products(long productId, String productName, ProductCategory category, Double ratePerUnit) {
-        Products.productId = productId;
-        Products.productName = productName;
-        Products.category = category;
-        Products.ratePerUnit = ratePerUnit;
-
+    public Products(long productId, String productName, ProductCategory category, Double ratePerUnit, Integer quantity) {
+        this.productId = productId;
+        this.productName = productName;
+        this.category = category;
+        this.ratePerUnit = ratePerUnit;
+        this.quantity = quantity;
     }
-
-    public Products(long productId, String productName, ProductCategory category,
-                    Double ratePerUnit, Integer quantity) {
-        Products.productId = productId;
-        Products.productName = productName;
-        Products.category = category;
-        Products.ratePerUnit = ratePerUnit;
-        Products.quantity = quantity;
-
-    }
-
 
     //GETTERS & SETTERS------------------------------------------------------------------>
-    public String getProductName() {
-        return productName;
-    }
 
-    public void setProductName(String productName) {
-        Products.productName = productName;
-    }
 
     public long getProductId() {
         return productId;
     }
 
     public void setProductId(long productId) {
-        Products.productId = productId;
+        this.productId = productId;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public ProductCategory getCategory() {
@@ -61,7 +52,7 @@ public class Products{
     }
 
     public void setCategory(ProductCategory category) {
-        Products.category = category;
+        this.category = category;
     }
 
     public Double getRatePerUnit() {
@@ -69,7 +60,7 @@ public class Products{
     }
 
     public void setRatePerUnit(Double ratePerUnit) {
-        Products.ratePerUnit = ratePerUnit;
+        this.ratePerUnit = ratePerUnit;
     }
 
     public Integer getQuantity() {
@@ -77,14 +68,17 @@ public class Products{
     }
 
     public void setQuantity(Integer quantity) {
-        Products.quantity = quantity;
+        this.quantity = quantity;
     }
 
     public Double getAmount() {
-        amount = quantity * ratePerUnit; //VAT INCLUSIVE
+        amount = this.quantity * this.ratePerUnit;
         return amount;
     }
 
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
 
     @Override
     public String toString() {
@@ -97,6 +91,4 @@ public class Products{
                 ", amount=" + amount +
                 '}';
     }
-
-
 }

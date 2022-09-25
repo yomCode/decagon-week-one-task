@@ -4,5 +4,5 @@ import models.Applicant;
 import models.Staff;
 
 public interface ManagerInterface {
-    public String hireCashier(Applicant applicant);
+    public String hireCashier(Staff staff, Applicant applicant);
 }

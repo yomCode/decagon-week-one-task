@@ -5,7 +5,7 @@ import models.Staff;
 
 public interface CashierInterface {
 
-    public String sellProduct(Customer customer);
+    public String sellProduct(Staff staff, Customer customer);
 
 
 }
