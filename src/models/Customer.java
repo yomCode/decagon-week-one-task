@@ -1,7 +1,7 @@
 package models;
 
 import Interfaces.CustomerInterface;
-import enums.ProductCategory;
+import Reserved.PrintReceipt;
 import enums.Qualification;
 import enums.Sex;
 

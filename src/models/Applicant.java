@@ -19,7 +19,7 @@ public class Applicant {
     }
 
     public Applicant(Integer applicationId, String name, Integer age, Sex sex,
-                     String email, Qualification qualification, Integer yearsOfExperience) {
+                     String email, Qualification qualification, Integer yearsOfExperience, double examScore) {
         this.applicationId = applicationId;
         this.name = name;
         this.age = age;
@@ -27,6 +27,7 @@ public class Applicant {
         this.email = email;
         this.qualification = qualification;
         this.yearsOfExperience = yearsOfExperience;
+        this.examScore = examScore;
     }
 
     public Integer getApplicationId() {

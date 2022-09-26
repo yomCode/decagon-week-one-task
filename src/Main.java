@@ -30,14 +30,14 @@ public class Main {
         Customer customer1 = new Customer(01, 1600.00,  product1);
 
         Applicant applicant1 = new Applicant(2332, "Ronke George", 26, Sex.FEMALE, "rony123@gmail.com",
-                Qualification.HND, 3);
+                Qualification.HND, 3, 86.0);
 
-        applicant1.setExamScore(86.0);
+
 
         Applicant applicant2 = new Applicant(2322, "John Banks", 25, Sex.MALE, "john123@gmail.com",
-                Qualification.HND, 3);
+                Qualification.HND, 3, 85.5);
 
-        applicant2.setExamScore(85.5);
+
 
 
 
@@ -66,10 +66,11 @@ public class Main {
 
         System.out.println(customer1.buyProduct());
 //        System.out.println(applicant1.takeExam());
-        System.out.println(manager.hireCashier(manager, applicant1));
+//        System.out.println(manager.hireCashier(manager, applicant1));
         System.out.println(cashier1.sellProduct(cashier1, customer1));
-        System.out.println(PrintReceipt.printReceipt(cashier1, customer1));
+//        System.out.println(PrintReceipt.printReceipt(cashier1, customer1));
 //        System.out.println(ugoMiniStore);
+        System.out.println(cashier1.printReceipt(cashier1, customer1));
 
 
 

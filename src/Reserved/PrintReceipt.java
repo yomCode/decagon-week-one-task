@@ -1,14 +1,16 @@
-package models;
+package Reserved;
 
 import Interfaces.PrintReceiptInterface;
 import enums.ProductCategory;
 import enums.Qualification;
 import enums.Role;
 import enums.Sex;
+import models.Customer;
+import models.Products;
 
 import java.time.LocalDateTime;
 
-public class PrintReceipt extends Customer implements PrintReceiptInterface {
+public class PrintReceipt extends Customer {
 
     //FIELDS-------------------------------------------------------------------------->
     private  LocalDateTime dateTime;
@@ -76,23 +78,23 @@ public class PrintReceipt extends Customer implements PrintReceiptInterface {
                 '}';
     }
 
-    public static String printReceipt(Staff staff, Customer customer){
-        LocalDateTime dateTime = LocalDateTime.now();
-        slipNumber = (int) (Math.random() * 1_000_000);
-
-        if(staff.getRole().equals(Role.CASHIER)){
-            if(customer.buyProduct().equals("Product purchased!")){
-            return "RECEIPT \n" +"--------------------- \n"+ "Date: " + dateTime +"\nSlip Number: " + slipNumber +"\n\n"
-                    + customer.getProducts().getProductName() +"  Qty: " +customer.getProducts().getQuantity() +
-                    "   Rate: " + customer.getProducts().getRatePerUnit() + "     Total: " + customer.getProducts().getAmount() +
-                    "\nCashier: " + staff.getName() + "\n \nGOODS BOUGHT IN GOOD CONDITION ARE NOT RETURNABLE \n"
-                    + "Thanks for your patronage!" ;
-        }else{
-            return "No product was purchased";
-        }
-        }else{
-            return "Access Denied!";
-        }
-    }
+//    public static String printReceipt(Staff staff, Customer customer){
+//        LocalDateTime dateTime = LocalDateTime.now();
+//        slipNumber = (int) (Math.random() * 1_000_000);
+//
+//        if(staff.getRole().equals(Role.CASHIER)){
+//            if(customer.buyProduct().equals("Product purchased!")){
+//            return "RECEIPT \n" +"--------------------- \n"+ "Date: " + dateTime +"\nSlip Number: " + slipNumber +"\n\n"
+//                    + customer.getProducts().getProductName() +"  Qty: " +customer.getProducts().getQuantity() +
+//                    "   Rate: " + customer.getProducts().getRatePerUnit() + "     Total: " + customer.getProducts().getAmount() +
+//                    "\nCashier: " + staff.getName() + "\n \nGOODS BOUGHT IN GOOD CONDITION ARE NOT RETURNABLE \n"
+//                    + "Thanks for your patronage!" ;
+//        }else{
+//            return "No product was purchased";
+//        }
+//        }else{
+//            return "Access Denied!";
+//        }
+//    }
 
 }

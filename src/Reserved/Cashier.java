@@ -1,9 +1,10 @@
-package models;
+package Reserved;
 
 import Interfaces.CashierInterface;
 import enums.Qualification;
 import enums.Role;
 import enums.Sex;
+import models.Staff;
 
 public class Cashier extends Staff {
 

@@ -1,4 +1,4 @@
-package models;
+package Reserved;
 
 import Interfaces.ManagerInterface;
 import enums.Qualification;
