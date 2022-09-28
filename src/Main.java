@@ -27,7 +27,7 @@ public class Main {
 
 
         //Instances of a Customer Class------------------------------------------------------------------------------------------------->
-        Customer customer1 = new Customer(01, 1600.00,  product1);
+        Customer customer1 = new Customer(01, 1300.00,  product1);
 
         Applicant applicant1 = new Applicant(2332, "Ronke George", 26, Sex.FEMALE, "rony123@gmail.com",
                 Qualification.HND, 3, 86.0);
@@ -70,7 +70,7 @@ public class Main {
         System.out.println(cashier1.sellProduct(cashier1, customer1));
 //        System.out.println(PrintReceipt.printReceipt(cashier1, customer1));
 //        System.out.println(ugoMiniStore);
-        System.out.println(cashier1.printReceipt(cashier1, customer1));
+//        System.out.println(cashier1.printReceipt(cashier1, customer1));
 
 
 

@@ -3,7 +3,7 @@ package models;
 import enums.Qualification;
 import enums.Sex;
 
-public class Person {
+public abstract class Person {
     //ENTITY FIELDS-------------------------
     private Integer id;
     private String name;

@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class Products{
     //FIELDS--------------------------------------------------------------------->
-    private  long productId;
+    private Long productId;
     private String productName;
     private ProductCategory category;
     private Double ratePerUnit;

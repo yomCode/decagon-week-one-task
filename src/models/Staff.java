@@ -2,16 +2,14 @@ package models;
 
 import Interfaces.CashierInterface;
 import Interfaces.ManagerInterface;
-import Interfaces.PrintReceiptInterface;
 import enums.Qualification;
 import enums.Role;
 import enums.Sex;
 
-import java.time.LocalDateTime;
-
-public class Staff extends Person implements ManagerInterface, CashierInterface, PrintReceiptInterface {
+public class Staff extends Person implements ManagerInterface, CashierInterface {
 
     private Role role;
+
 
     //CONSTRUCTOR----------------------------
 
@@ -51,6 +49,7 @@ public class Staff extends Person implements ManagerInterface, CashierInterface,
                 '}';
     }
 
+
     @Override
     public String hireCashier(Staff staff, Applicant applicant){
 
@@ -76,15 +75,14 @@ public class Staff extends Person implements ManagerInterface, CashierInterface,
 
     @Override
     public String sellProduct(Staff staff, Customer customer){
-//        if(customer.buyProduct().equals("Product purchased!")){
-//            return "Product sold!";
-//        }else{
-//            return "Product not sold";
-//        }
+        //unique Field---------------------------------------------------->
+        PrintReceipt printReceipt;
+        PrintReceipt receipt = new PrintReceipt();
+
 
         if(staff.getRole().equals(Role.CASHIER)){
             if(customer.buyProduct().equals("Product purchased!")){
-                return "Product sold!";
+                return "Product sold!\n\n" + receipt.printReceipt(staff, customer);
             }else{
                 return "Product not sold";
             }
@@ -94,26 +92,5 @@ public class Staff extends Person implements ManagerInterface, CashierInterface,
         }
 
     }
-    @Override
-    public String printReceipt(Staff staff, Customer customer){
-        LocalDateTime dateTime;
-        Integer slipNumber;
 
-        dateTime = LocalDateTime.now();
-        slipNumber = (int) (Math.random() * 1_000_000);
-
-        if(staff.getRole().equals(Role.CASHIER)){
-            if(customer.buyProduct().equals("Product purchased!")){
-                return "RECEIPT \n" +"--------------------- \n"+ "Date: " + dateTime +"\nSlip Number: " + slipNumber +"\n\n"
-                        + customer.getProducts().getProductName() +"  Qty: " +customer.getProducts().getQuantity() +
-                        "   Rate: " + customer.getProducts().getRatePerUnit() + "     Total: " + customer.getProducts().getAmount() +
-                        "\nCashier: " + staff.getName() + "\n \nGOODS BOUGHT IN GOOD CONDITION ARE NOT RETURNABLE \n"
-                        + "Thanks for your patronage!" ;
-            }else{
-                return "No product was purchased";
-            }
-        }else{
-            return "Access Denied!";
-        }
-    }
 }

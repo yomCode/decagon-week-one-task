@@ -1,7 +1,6 @@
 package models;
 
 import Interfaces.CustomerInterface;
-import Reserved.PrintReceipt;
 import enums.Qualification;
 import enums.Sex;
 
@@ -18,6 +17,9 @@ public class Customer extends Person implements CustomerInterface {
 
     //CONSTRUCTORS------------------------------------------------------------------>
 
+    public Customer(){
+
+    }
 
     public Customer(Double cashPaid, Double balance, Products products) {
         this.cashPaid = cashPaid;
@@ -28,7 +30,6 @@ public class Customer extends Person implements CustomerInterface {
     public Customer(Integer id, Double cashPaid, Products products) {
         super(id);
         this.cashPaid = cashPaid;
-        this.balance = balance;
         this.products = products;
     }
 

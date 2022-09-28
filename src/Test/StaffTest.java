@@ -4,10 +4,7 @@ import enums.ProductCategory;
 import enums.Qualification;
 import enums.Role;
 import enums.Sex;
-import models.Applicant;
-import models.Customer;
-import models.Products;
-import models.Staff;
+import models.*;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
@@ -29,6 +26,8 @@ class StaffTest {
 
     //Products instances--------------------------------------------------------------------------------------------------------------->
     Products product1 = new Products(01, "Milo", ProductCategory.BEVERAGES, 150.0, 10);
+
+    PrintReceipt receipt = new PrintReceipt();
 
 
     //Manager Method Tests--------------------------------------------------------------------------------------------------------------->
@@ -62,7 +61,7 @@ class StaffTest {
     void sellProductSuccessful(){
         Customer customer1 = new Customer(01, 1600.00,  product1);
 
-        String expected = "Product sold!";
+        String expected = "Product sold!\n\n" + receipt.printReceipt(staff1, customer1);
         String actual = staff1.sellProduct(staff2, customer1);
 
         assertEquals(expected, actual);
@@ -89,45 +88,7 @@ class StaffTest {
     }
 
     //PrintReceipt Method Tests--------------------------------------------------------------------------------------------------------------->
-    @Test
-    void productSoldAndReceiptIsPrinted(){
-        LocalDateTime dateTime = LocalDateTime.now();
-        int slipNumber = (int) (Math.random() * 1_000_000);
-        Customer customer;
 
-        Customer customer1 = new Customer(01, 1500.00,  product1);
-
-
-        String expected = "RECEIPT \n" +"--------------------- \n"+ "Date: " + dateTime +"\nSlip Number: " + slipNumber +"\n\n"
-                + customer1.getProducts().getProductName() +"  Qty: " +customer1.getProducts().getQuantity() +
-                "   Rate: " + customer1.getProducts().getRatePerUnit() + "     Total: " + customer1.getProducts().getAmount() +
-                "\nCashier: " + staff2.getName() + "\n \nGOODS BOUGHT IN GOOD CONDITION ARE NOT RETURNABLE \n"
-                + "Thanks for your patronage!";
-
-        String actual = staff2.printReceipt(staff2, customer1);
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void productNotSoldAndReceiptNotPrinted(){
-        Customer customer1 = new Customer(01, 1499.00,  product1);
-
-        String expected = "No product was purchased";
-        String actual = staff1.printReceipt(staff2, customer1);
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void printReceiptAccessDenied(){
-        Customer customer1 = new Customer(01, 1600.00,  product1);
-
-        String expected = "Access Denied!";
-        String actual = staff1.printReceipt(staff1, customer1);
-
-        assertEquals(expected, actual);
-    }
 
 
 }
