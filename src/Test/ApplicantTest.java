@@ -10,10 +10,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ApplicantTest {
 
-    Applicant applicant1 = new Applicant(2332, "Ronke George", 26, Sex.FEMALE, "rony123@gmail.com",
-            Qualification.HND, 3, 86.0);
-    Applicant applicant2 = new Applicant(2322, "John Banks", 25, Sex.MALE, "john123@gmail.com",
-            Qualification.HND, 3, 83.5);
+    Applicant applicant1 = new Applicant(2332, "Ronke George", 26, Sex.FEMALE, Qualification.HND,
+            "rony123@gmail.com", 86.0, 3);
+    Applicant applicant2 = new Applicant(2322, "John Banks", 25, Sex.MALE, Qualification.BSC,
+            "john123@gmail.com", 83.5, 3);
 
 
     @Test

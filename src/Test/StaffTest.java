@@ -19,10 +19,10 @@ class StaffTest {
     Staff staff2 = new Staff ( 323, "Adeola Johnson", 20, Sex.FEMALE, Qualification.BSC, "Adeola123@gmail.com", Role.CASHIER);
 
     //Applicant instances--------------------------------------------------------------------------------------------------------------->
-    Applicant applicant1 = new Applicant(2332, "Ronke George", 26, Sex.FEMALE, "rony123@gmail.com",
-            Qualification.HND, 3, 86.0);
-    Applicant applicant2 = new Applicant(2322, "John Banks", 25, Sex.MALE, "john123@gmail.com",
-            Qualification.HND, 3, 83.5);
+    Applicant applicant1 = new Applicant(2332, "Ronke George", 26, Sex.FEMALE, Qualification.HND,
+            "rony123@gmail.com", 86.0, 3);
+    Applicant applicant2 = new Applicant(2322, "John Banks", 25, Sex.MALE, Qualification.BSC,
+            "john123@gmail.com", 83.5, 3);
 
     //Products instances--------------------------------------------------------------------------------------------------------------->
     Products product1 = new Products(01, "Milo", ProductCategory.BEVERAGES, 150.0, 10);
@@ -61,8 +61,8 @@ class StaffTest {
     void sellProductSuccessful(){
         Customer customer1 = new Customer(01, 1600.00,  product1);
 
-        String expected = "Product sold!\n\n" + receipt.printReceipt(staff1, customer1);
-        String actual = staff1.sellProduct(staff2, customer1);
+        String expected = "Product sold!\n\n" + receipt.printReceipt(staff2, customer1);
+        String actual = staff2.sellProduct(staff2, customer1);
 
         assertEquals(expected, actual);
     }
@@ -86,8 +86,6 @@ class StaffTest {
 
         assertEquals(expected, actual);
     }
-
-    //PrintReceipt Method Tests--------------------------------------------------------------------------------------------------------------->
 
 
 

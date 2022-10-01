@@ -9,6 +9,7 @@ import models.Customer;
 import models.Products;
 import models.Staff;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class PrintReceipt extends Customer implements PrintReceiptInterface{
@@ -86,8 +87,8 @@ public class PrintReceipt extends Customer implements PrintReceiptInterface{
 
     @Override
     public  String printReceipt(Staff staff, Customer customer){
-        LocalDateTime dateTime = LocalDateTime.now();
-        slipNumber = (int) (Math.random() * 1_000_000);
+        LocalDate dateTime = LocalDate.now();
+        slipNumber = 0; //(int) (Math.random() * 1_000_000);
 
         if(staff.getRole().equals(Role.CASHIER)){
             if(customer.buyProduct().equals("Product purchased!")){

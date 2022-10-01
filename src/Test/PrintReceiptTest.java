@@ -10,6 +10,7 @@ import models.Products;
 import models.Staff;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,7 +21,7 @@ class PrintReceiptTest {
 
         @Test
         void productSoldAndReceiptIsPrinted(){
-            LocalDateTime dateTime = LocalDateTime.now();
+            LocalDate dateTime = LocalDate.now();
             int slipNumber = (int) (Math.random() * 1_000_000);
 
             Staff cashier1 = new Staff ( 323, "Adeola Johnson", 20, Sex.FEMALE, Qualification.BSC, "Adeola123@gmail.com", Role.CASHIER);

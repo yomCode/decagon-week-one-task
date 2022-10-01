@@ -3,14 +3,8 @@ package models;
 import enums.Qualification;
 import enums.Sex;
 
-public class Applicant {
-    private Integer applicationId;
-    private String name;
-    private Integer age;
-    private Sex sex;
-    private String email;
+public class Applicant extends Person{
     private Double examScore;
-    private Qualification qualification;
     private Integer yearsOfExperience;
 
 
@@ -18,65 +12,25 @@ public class Applicant {
 
     }
 
-    public Applicant(Integer applicationId, String name, Integer age, Sex sex,
-                     String email, Qualification qualification, Integer yearsOfExperience, double examScore) {
-        this.applicationId = applicationId;
-        this.name = name;
-        this.age = age;
-        this.sex = sex;
-        this.email = email;
-        this.qualification = qualification;
-        this.yearsOfExperience = yearsOfExperience;
+
+    public Applicant(Double examScore, Integer yearsOfExperience) {
         this.examScore = examScore;
+        this.yearsOfExperience = yearsOfExperience;
     }
 
-    public Integer getApplicationId() {
-        return applicationId;
+    public Applicant(Integer id, String name, Integer age, Sex sex, Qualification qualification, String email, Double examScore, Integer yearsOfExperience) {
+        super(id, name, age, sex, qualification, email);
+        this.examScore = examScore;
+        this.yearsOfExperience = yearsOfExperience;
     }
 
-    public void setApplicationId(Integer applicationId) {
-        this.applicationId = applicationId;
+    public Applicant(Integer id, Double examScore, Integer yearsOfExperience) {
+        super(id);
+        this.examScore = examScore;
+        this.yearsOfExperience = yearsOfExperience;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public Sex getSex() {
-        return sex;
-    }
-
-    public void setSex(Sex sex) {
-        this.sex = sex;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Qualification getQualification() {
-        return qualification;
-    }
-
-    public void setQualification(Qualification qualification) {
-        this.qualification = qualification;
-    }
 
     public Integer getYearsOfExperience() {
         return yearsOfExperience;
@@ -94,15 +48,24 @@ public class Applicant {
         this.examScore = examScore;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Applicant{" +
+//                "applicationId=" + applicationId +
+//                ", name='" + name + '\'' +
+//                ", age=" + age +
+//                ", sex=" + sex +
+//                ", email='" + email + '\'' +
+//                ", qualification=" + qualification +
+//                ", yearsOfExperience=" + yearsOfExperience +
+//                '}';
+//    }
+
+
     @Override
     public String toString() {
         return "Applicant{" +
-                "applicationId=" + applicationId +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", sex=" + sex +
-                ", email='" + email + '\'' +
-                ", qualification=" + qualification +
+                "examScore=" + examScore +
                 ", yearsOfExperience=" + yearsOfExperience +
                 '}';
     }
