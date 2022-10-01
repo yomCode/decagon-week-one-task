@@ -4,10 +4,14 @@ import enums.Role;
 import enums.Sex;
 import models.*;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
         //Instances of Store-------------------------------------------------------------------------------------------------->
         Store ugoMiniStore = new Store(22,"Ugo Mini Store");
@@ -64,15 +68,30 @@ public class Main {
 
 
 
-        System.out.println(customer1.buyProduct());
+//        System.out.println(customer1.buyProduct());
 //        System.out.println(applicant1.takeExam());
 //        System.out.println(manager.hireCashier(manager, applicant1));
-        System.out.println(cashier1.sellProduct(cashier1, customer1));
+//        System.out.println(cashier1.sellProduct(cashier1, customer1));
 //        System.out.println(PrintReceipt.printReceipt(cashier1, customer1));
 //        System.out.println(ugoMiniStore);
 //        System.out.println(cashier1.printReceipt(cashier1, customer1));
 
+        ArrayList<String> products = new ArrayList<>();
+        String path = "/Users/decagon/Desktop/ProductList.csv";
+        String line = "";
+        try{
+            BufferedReader read = new BufferedReader(new FileReader(path));
 
+            while((line = read.readLine()) != null){
+                String[] value = line.split("");
+                products.add(line);
+            }
+        } catch(FileNotFoundException e){
+            e.printStackTrace();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
+        System.out.println(products);
     }
 }
