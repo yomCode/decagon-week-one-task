@@ -50,35 +50,16 @@ public class Staff extends Person implements ManagerInterface, CashierInterface 
     }
 
 
-    @Override
-    public String hireCashier(Staff staff, Applicant applicant){
-
-        if(staff.getRole().equals(Role.MANAGER)){
-            if((applicant.getAge() >= 23 && applicant.getAge()<= 30)
-                    && applicant.getSex().equals(Sex.FEMALE)
-                    && (applicant.getQualification().equals(Qualification.BSC)
-                    || applicant.getQualification().equals(Qualification.HND))
-                    && applicant.takeExam().equals("Passed")){
-                return "You are hired!";
-            }else{
-
-                return "Sorry, you are not qualified for this position.";
-            }
 
 
 
-        }else{
-            return "Access Denied!";
-        }
-
-    }
 
     @Override
     public String sellProduct(Staff staff, Customer customer){
         //unique Field---------------------------------------------------->
         PrintReceipt printReceipt;
         PrintReceipt receipt = new PrintReceipt();
-
+        customer.getProducts().reduceQty(customer.getProducts());
 
         if(staff.getRole().equals(Role.CASHIER)){
             if(customer.buyProduct().equals("Product purchased!")){

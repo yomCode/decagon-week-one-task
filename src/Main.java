@@ -76,22 +76,25 @@ public class Main {
 //        System.out.println(ugoMiniStore);
 //        System.out.println(cashier1.printReceipt(cashier1, customer1));
 
-        ArrayList<String> products = new ArrayList<>();
-        String path = "/Users/decagon/Desktop/ProductList.csv";
-        String line = "";
-        try{
-            BufferedReader read = new BufferedReader(new FileReader(path));
+//        ArrayList<String> products = new ArrayList<>();
+//        String path = "/Users/decagon/Desktop/ProductList.csv";
+//        String line = "";
+//        try{
+//            BufferedReader read = new BufferedReader(new FileReader(path));
+//
+//            while((line = read.readLine()) != null){
+//                String[] value = line.split("");
+//                products.add(line);
+//            }
+//        } catch(FileNotFoundException e){
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
 
-            while((line = read.readLine()) != null){
-                String[] value = line.split("");
-                products.add(line);
-            }
-        } catch(FileNotFoundException e){
-            e.printStackTrace();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+//        System.out.println(products);
 
-        System.out.println(products);
+//        System.out.println(cashier1.sellProduct(cashier1, customer1));
+//        System.out.println(product1.getQuantity());
     }
 }
